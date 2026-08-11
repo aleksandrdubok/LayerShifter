@@ -31,6 +31,18 @@ A tool for computational studies of flexible layered crystals. It transforms the
    ```bash
    layer-shifter --help
    ```
+## Running tests
+
+Install development dependencies:
+```bash
+pip install -e .[dev]
+```
+
+Run all tests:
+
+```bash
+pytest tests/
+```
 
 ## Usage
 
@@ -56,21 +68,11 @@ Optional parameters:
 
 ### Examples
 
-**Simple layer displacement for (001) with a 5×5 mesh and 40 Å separation:**
+**Simple layer displacement for (10-3) with a 4×4 mesh and 36 Å separation:**
 ```bash
-layer-shifter --output ./001_0 -i ./phase.cif --approach 1 --mesh 5 --separation 40
-```
+layer-shifter --output ./examples/output -i ./examples/PYRZIN22.cif  --hkl 1 0 -3 --offset -0.5 --separation 36.0 --cutoff 3.0
 
-**Stair‑like displacement along the (100) plane:**
-```bash
-layer-shifter --output ./100_0_stair -i ./phase.cif --hkl 1 0 0 --approach 2 --mesh 4
 ```
-
-**Same, with debug output:**
-```bash
-layer-shifter --output ./100_0_stair -i ./phase.cif --hkl 1 0 0 --approach 2 --mesh 4 --debug
-```
-
 Results are saved with filenames that include the Miller indices and the mesh coordinates a,b.
 
 ## How it works
@@ -105,15 +107,3 @@ Results are saved with filenames that include the Miller indices and the mesh co
 - `tests/` — tests (under development)
 - `pyproject.toml`, `setup.py` — package configuration
 
-## Running tests
-
-Install development dependencies:
-```bash
-pip install -e .[dev]
-```
-
-Run all tests:
-
-```bash
-pytest tests/
-```
