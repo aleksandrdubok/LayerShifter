@@ -35,6 +35,12 @@ def parse_args() -> argparse.Namespace:
         help=argparse.SUPPRESS  # Approach selection: 1 – approach_1, 2 – staired, 3 – staired_inversed_sym' - experimental feature
     )
     parser.add_argument(
+        '--mesh',
+        type=int,
+        default=DEFAULT_MESH_SIZE,
+        help='Number of points in each mesh direction'
+    )
+    parser.add_argument(
         '--hkl',
         nargs=3,
         type=int,
