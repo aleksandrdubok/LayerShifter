@@ -1,7 +1,14 @@
 # Layer Shifter — layer displacement utility for layered crystals
 
 A tool for computational studies of flexible layered crystals. It transforms the crystal structure so that a given `(hkl)` plane becomes parallel to `(001)`, then generates a mesh of structures with shifted layers using three different approaches.
+## Prerequisites
 
+- Python 3.8 or higher
+- On **Debian/Ubuntu** systems, you may need to install the `python3-venv` package if it is not already present:
+  ```bash
+  sudo apt update
+  sudo apt install python3-venv
+  
 ## Installation
 
 1. Clone the repository:
