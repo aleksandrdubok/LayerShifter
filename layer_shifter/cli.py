@@ -5,7 +5,13 @@ from pathlib import Path
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments and return the parameters object."""
     parser = argparse.ArgumentParser(
-        description='Script for structure processing with selectable approach.'
+        description='A tool for computational studies of flexible layered crystals that generates structures with shifted layers.'
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version="%(prog)s 0.0.0"
     )
     parser.add_argument(
         '--output',
@@ -22,10 +28,18 @@ def parse_args() -> argparse.Namespace:
         help='Path to the input structure .cif file (required)'
     )
     parser.add_argument(
+        '--approach',
+        type=int,
+        choices=[1, 2, 3],
+        default=1,
+        help=argparse.SUPPRESS  # Approach selection: 1 – approach_1, 2 – staired, 3 – staired_inversed_sym' - experimental feature
+    )
+    parser.add_argument(
         '--hkl',
         nargs=3,
         type=int,
         default=[0, 0, 1],
+        metavar=('H', 'K', 'L'),
         help='Three integers for hkl indices (e.g. 2 0 -2)'
     )
     parser.add_argument(
@@ -35,24 +49,12 @@ def parse_args() -> argparse.Namespace:
         help='Fractional shift (in relative units)'
     )
     parser.add_argument(
-        '--mesh',
-        type=int,
-        default=DEFAULT_MESH_SIZE,
-        help='Number of points in each mesh direction'
-    )
-    parser.add_argument(
         '--separation',
         type=float,
         default=DEFAULT_INTERLAYER_DISTANCE,
         help='Desired interlayer separation (not guaranteed)'
     )
-    parser.add_argument(
-        '--approach',
-        type=int,
-        choices=[1, 2, 3],
-        default=1,
-        help='Approach selection: 1 – approach_1, 2 – staired, 3 – staired_inversed_sym'
-    )
+
     parser.add_argument(
         '--cutoff',
         type=float,

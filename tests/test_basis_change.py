@@ -49,7 +49,7 @@ def test_basis_matrix_all_indices(n: int = 20) -> None:
 
                 # ---- Check 3: (h,k,l) maps to (0,0,±1) ----
                 prod = M @ np.array([h, k, l])
-                expected = np.array([0, 0, 1]) if prod[2] > 0 else np.array([0, 0, -1])
+                expected = np.array([0, 0, 1]) #if prod[2] > 0 else np.array([0, 0, -1])
                 assert np.array_equal(prod, expected), (
                     f"Mapping failed for ({h_raw},{k_raw},{l_raw}): "
                     f"got {prod}, expected {expected}"
@@ -57,4 +57,3 @@ def test_basis_matrix_all_indices(n: int = 20) -> None:
 
     print(f"All indices in [-{n}, {n}]³ passed.")
 
-test_basis_matrix_all_indices()

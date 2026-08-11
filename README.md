@@ -104,3 +104,16 @@ Results are saved with filenames that include the Miller indices and the mesh co
   - `math_utils.py` — Diophantine equation solvers
 - `tests/` — tests (under development)
 - `pyproject.toml`, `setup.py` — package configuration
+
+## Running tests
+
+Install development dependencies:
+```bash
+pip install -e .[dev]
+```
+
+Run all tests:
+
+```bash
+pytest tests/
+```

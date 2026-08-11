@@ -9,4 +9,3 @@ def test_defaults():
     assert args.input == Path("./test.cif")
     assert args.hkl == [0,0,1]
 
-test_defaults()
