@@ -14,7 +14,7 @@ A tool for computational studies of flexible layered crystals. It transforms the
 1. Clone the repository:
    
    ```bash
-   git clone <url>
+   git clone https://github.com/aleksandrdubok/LayerShifter/
    cd layer_shifter
    ```
 2. Create and activate a virtual environment:
