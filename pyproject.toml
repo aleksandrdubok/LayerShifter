@@ -17,3 +17,8 @@ dependencies = [
 
 [project.scripts]
 layer-shifter = "layer_shifter.main:main"
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+]
