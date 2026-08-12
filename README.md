@@ -1,36 +1,136 @@
 # Layer Shifter — layer displacement utility for layered crystals
 
 A tool for computational studies of flexible layered crystals. It transforms the crystal structure so that a given `(hkl)` plane becomes parallel to `(001)`, then generates a mesh of structures with shifted layers using three different approaches.
-## Prerequisites
 
-- Python 3.8 or higher
-- On **Debian/Ubuntu** systems, you may need to install the `python3-venv` package if it is not already present:
+# LayerShifter – Installation Guide
+
+This guide will help you install LayerShifter (even if you are not a developer).  
+Choose the method that feels easiest for you: **using Git** or **downloading the ZIP file**.
+
+## Prerequisites (what you need before you start)
+
+- **Python 3.8 or newer** installed on your computer.  
+  *To check:* open a terminal (Command Prompt on Windows, Terminal on Mac/Linux) and type:
+  ```bash
+  python --version
+  ```
+  or
+  ```bash
+  python3 --version
+  ```
+  If you see something like `Python 3.9.7`, you are ready.
+
+- **On Debian/Ubuntu Linux** you may need an extra package. If you later get an error about `venv`, run these two commands (your password will be asked):
   ```bash
   sudo apt update
   sudo apt install python3-venv
-  
-## Installation
+  ```
+  *What happens:* The system updates its package list and installs the required `python3-venv` package. After that you can create virtual environments without problems.
 
-1. Clone the repository:
-   
+## Method 1: Install using Git (automatic, recommended if you have Git)
+
+1. **Open a terminal** (Command Prompt on Windows, Terminal on Mac/Linux).
+2. **Download the project:**
    ```bash
    git clone https://github.com/aleksandrdubok/LayerShifter/
-   cd layer_shifter
    ```
-2. Create and activate a virtual environment:
+   *What happens:* Git creates a folder called `LayerShifter` and copies all the files into it.
+3. **Enter the folder:**
+   ```bash
+   cd LayerShifter
+   ```
+4. **Create a virtual environment** (a clean, isolated Python setup just for this tool):
    ```bash
    python -m venv venv
-   source venv/bin/activate   # Linux/Mac
-   venv\Scripts\activate      # Windows
    ```
-3. Install the package and dependencies:
+   *What happens:* A new folder `venv` appears. It contains its own Python and pip. The command is silent if successful.
+5. **Activate the virtual environment:**
+   - **Linux / Mac:**
+     ```bash
+     source venv/bin/activate
+     ```
+   - **Windows (Command Prompt):**
+     ```cmd
+     venv\Scripts\activate
+     ```
+   *What happens:* Your terminal prompt changes and now begins with `(venv)`. For example:
+   ```
+   (venv) C:\Users\YourName\LayerShifter>
+   ```
+   This means you are inside the virtual environment.
+6. **Install the tool and all its dependencies:**
    ```bash
    pip install -e .
    ```
-4. Verify the installation:
+   *What happens:* pip reads the project files, downloads the required packages, and installs a command called `layer-shifter`. You will see output ending with `Successfully installed ...`. Red errors? Make sure you are in the virtual environment and your internet connection is working.
+7. **Check that everything works:**
    ```bash
    layer-shifter --help
    ```
+   *What should happen:* A help message appears, showing you how to use the program. If you see a “command not found” error, try closing and reopening the terminal, re‑activate the virtual environment, and run the command again.
+
+
+## Method 2: Install from ZIP (no Git needed)
+
+If you do not have Git or you prefer a simpler download, follow these steps.
+
+1. Go to the project page:  
+   [https://github.com/aleksandrdubok/LayerShifter](https://github.com/aleksandrdubok/LayerShifter)
+2. Click the green **Code** button, then choose **Download ZIP**.
+3. Save the `.zip` file somewhere easy to find (Desktop, Downloads, etc.).
+4. **Extract the ZIP:**
+   - **Windows:** Right‑click the ZIP file → “Extract All…” → choose a folder and click “Extract”.
+   - **Mac:** Double‑click the ZIP file – a folder will appear next to it.
+   - **Linux:** Use your file manager (right‑click → “Extract Here”) or in a terminal: `unzip LayerShifter-main.zip`.
+5. After extraction you will have a folder named something like `LayerShifter-main`. **Open that folder.**
+6. Now you need to **open a terminal inside that folder** (we still need the terminal for the remaining steps, but we skipped the Git part):
+   - **Windows:**
+     Open the folder in File Explorer. Hold the **Shift** key and **right‑click** on an empty space inside the folder. Choose **“Open command window here”**.  
+     *(If you see “Open PowerShell window here” instead, you can use that too – the commands below will work exactly the same.)*
+   - **Mac:**
+     Right‑click the folder and select **“New Terminal at Folder”** (if available). Otherwise, open the Terminal app, type `cd ` (with a space after `cd`), then drag the `LayerShifter-main` folder into the Terminal window and press Enter.
+   - **Linux:**
+     Most file managers let you right‑click inside the folder and choose **“Open in Terminal”**. If not, open a terminal and type `cd /path/to/LayerShifter-main`.
+7. Once the terminal is open **inside the `LayerShifter-main` folder**, you are exactly where you would have been after step 3 of Method 1.  
+   Now follow the same steps 4 to 7 from Method 1:
+
+   - **Create the virtual environment:**
+     ```bash
+     python -m venv venv
+     ```
+   - **Activate it:**
+     - Linux/Mac: `source venv/bin/activate`
+     - Windows: `venv\Scripts\activate`
+   - **Install the tool:**
+     ```bash
+     pip install -e .
+     ```
+   - **Test it:**
+     ```bash
+     layer-shifter --help
+     ```
+
+   *Remember:* after activating, your prompt must show `(venv)`. That is how you know you are in the right place.
+   
+
+## How to use LayerShifter later
+
+Every time you open a new terminal and want to use the program:
+
+1. Navigate to the project folder (where `venv` is):
+   ```bash
+   cd /path/to/LayerShifter   # or LayerShifter-main
+   ```
+2. Activate the virtual environment:
+   ```bash
+   source venv/bin/activate    # Linux/Mac
+   venv\Scripts\activate       # Windows (Command Prompt)
+   ```
+3. You can now run `layer-shifter` commands.  
+   When you are finished, type `deactivate` to leave the virtual environment.
+
+That’s it! You have successfully installed LayerShifter.
+
 ## Running tests
 
 Install development dependencies:
