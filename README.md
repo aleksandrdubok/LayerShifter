@@ -143,16 +143,15 @@ If you run layer-shifter without any arguments, the program launches a simple gr
 - Enter Miller indices (HKL), offset, mesh size, separation, and cutoff.
 
 - Choose the displacement approach (1, 2, or 3).
-
-- Enable debug mode or force overwriting of existing files.
-
 - Run the processing and see progress messages in a log area.
 
-To start the GUI:
+To start the GUI (make sure you have activated virtual environment, see previous section) :
 
 ```bash
 layer-shifter
 ```
+Now you can enter the parameters and generate cif files with shifted layers. The parameters are described in **Usage** section. Be careful as **overwriting existing files without prompting for confirmation** is enabled.
+
 On Linux, make sure python3-tk is installed (see prerequisites above). If the GUI does not start, you will see a helpful error message.
 
 You can still use the command-line interface by supplying the usual arguments (see below). 
