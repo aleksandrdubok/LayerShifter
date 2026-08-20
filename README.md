@@ -229,12 +229,14 @@ Additional  files are saved for reference:
 
 - `layer_shifter/` — main package
   - `cli.py` — command‑line interface
+  - `gui.py` — graphical user interface
   - `config.py` — default values
   - `basis_change.py` — basis transformation
   - `graph_analysis.py` — molecular graph analysis
   - `layer_shifting.py` — layer displacement algorithms
   - `io.py` — CIF read/write
   - `math_utils.py` — Diophantine equation solvers
-- `tests/` — tests (under development)
+- `tests/` — tests 
 - `pyproject.toml`, `setup.py` — package configuration
+- - `examples/` — example .cif files
 
