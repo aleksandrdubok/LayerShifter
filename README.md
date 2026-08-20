@@ -173,7 +173,11 @@ Optional parameters:
 layer-shifter --output ./examples/output -i ./examples/PYRZIN22.cif  --hkl 1 0 -3 --offset -0.5 --separation 36.0 --cutoff 3.0
 
 ```
-Results are saved with filenames that include the Miller indices and the mesh coordinates a,b.
+Results are saved with filenames that include the Miller indices and the mesh coordinates a,b. 
+Additional  files are saved for reference: 
+- basis_matrix.txt containing [uvw] vectors of transformed basis in each of its rows 
+- *_transformed.cif containing initial structure with basis transformation applied  
+
 
 ## How it works
 

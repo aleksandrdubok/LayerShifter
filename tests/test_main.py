@@ -44,9 +44,9 @@ def test_approach_1_mesh2_hkl_001(tmp_path):
     run(args)
 
     # ----- Verify output -----
-    # Expected files: *a0b0.cif, a0b1, a1b0, ..., a3b3 (16 files)
+    # Expected files: *a0b0.cif, a0b1, a1b0, ..., a3b3 and _transformed(16 files)
     generated_cifs = sorted(output_dir.glob("*.cif"))
-    assert len(generated_cifs) == 16, f"Expected 16 CIF files, got {len(generated_cifs)}"
+    assert len(generated_cifs) == 17, f"Expected 16 CIF files, got {len(generated_cifs)}"
 
     # Compare each generated file with the corresponding reference
     for gen_path in generated_cifs:

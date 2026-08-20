@@ -8,6 +8,9 @@ from layer_shifter.layer_shifting import generate_mesh_approach_1, generate_mesh
 import warnings
 import logging
 
+from pathlib import Path
+from layer_shifter.io import write_structure
+
 
 def run(args: Namespace):
     """Core processing: load structure, change basis, generate output."""
@@ -45,6 +48,10 @@ def run(args: Namespace):
     original_structure = load_structure(str(input_path))
 
     structure, gcd = change_basis(original_structure, hkl, fractional_offset, str(output_dir), force=args.force)
+
+    hkl_str = ''.join(str(x).replace('-', 'm') for x in hkl)
+    output_path = Path(output_dir) / f"{input_file_name}_{hkl_str}_transformed.cif"
+    write_structure(structure, output_path, force=args.force) #writing cif with transformed basis
 
     if approach == 1:
         generate_mesh_approach_1(mesh_size, structure, gcd, interlayer_separation_distance, str(output_dir),
