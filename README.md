@@ -26,7 +26,11 @@ Choose the method that feels easiest for you: **using Git** or **downloading the
   sudo apt install python3-venv
   ```
   *What happens:* The system updates its package list and installs the required `python3-venv` package. After that you can create virtual environments without problems.
-
+- For the graphical interface (GUI) on **Debian/Ubuntu Linux**, you may also need to install python3-tk:
+  ```bash
+  sudo apt install python3-tk
+  ```
+This package provides the Tk library that PySimpleGUI uses.
 ## Method 1: Install using Git (automatic, recommended if you have Git)
 
 1. **Open a terminal** (Command Prompt on Windows, Terminal on Mac/Linux).
@@ -130,6 +134,28 @@ Every time you open a new terminal and want to use the program:
    When you are finished, type `deactivate` to leave the virtual environment.
 
 That’s it! You have successfully installed LayerShifter.
+
+## Graphical User Interface (GUI)
+If you run layer-shifter without any arguments, the program launches a simple graphical interface. This interface lets you:
+
+- Select the input CIF file and output folder using file dialogs.
+
+- Enter Miller indices (HKL), offset, mesh size, separation, and cutoff.
+
+- Choose the displacement approach (1, 2, or 3).
+
+- Enable debug mode or force overwriting of existing files.
+
+- Run the processing and see progress messages in a log area.
+
+To start the GUI:
+
+```bash
+layer-shifter
+```
+On Linux, make sure python3-tk is installed (see prerequisites above). If the GUI does not start, you will see a helpful error message.
+
+You can still use the command-line interface by supplying the usual arguments (see below). 
 
 ## Running tests
 

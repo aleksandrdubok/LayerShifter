@@ -13,6 +13,7 @@ dependencies = [
     "networkx",
     "matplotlib",
     "numpy",
+    "PySimpleGUI",
 ]
 
 [project.scripts]

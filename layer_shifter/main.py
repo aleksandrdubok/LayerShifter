@@ -1,15 +1,15 @@
+import logging
+import sys
+import warnings
 from argparse import Namespace
+from pathlib import Path
 
 from layer_shifter.basis_change import change_basis
 from layer_shifter.cli import parse_args
 from layer_shifter.io import load_structure
+from layer_shifter.io import write_structure
 from layer_shifter.layer_shifting import generate_mesh_approach_1, generate_mesh_staired_approach, \
     generate_mesh_staired_inversed_sym
-import warnings
-import logging
-
-from pathlib import Path
-from layer_shifter.io import write_structure
 
 
 def run(args: Namespace):
@@ -66,6 +66,16 @@ def run(args: Namespace):
 
 
 def main():
+    # start GUI if no arguments supplied
+    if len(sys.argv) == 1:
+        try:
+            from layer_shifter.gui import run_gui
+        except ImportError as e:
+            print("PySimpleGUI is not installed. Please run 'pip install pysimplegui' or use CLI arguments.")
+            sys.exit(1)
+        run_gui()
+        return
+
     args = parse_args()
     """CLI entry point: parse args, set up logging, run processing."""
     # Logging and warning settings
