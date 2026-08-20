@@ -223,6 +223,7 @@ Additional  files are saved for reference:
 - networkx
 - numpy
 - matplotlib
+- PySimpleGUI
 
 ## Project structure
 
